@@ -24,7 +24,9 @@ DSOURCE=$2
 
 YR=${FDATE:0:4}
 MH=${FDATE:4:2}
+MH=$(echo $MH | sed 's/^0*//')
 DY=${FDATE:6:2}
+DY=$(echo $DY | sed 's/^0*//')
 
 if [[ "${#FDATE}" != "8" || -z "${DSOURCE}" ]]; then
     echo "ml_ops.sh syntax error"
@@ -76,7 +78,7 @@ HDFS_SCORED_CONNECTS=${HPATH}/scores
 
 hdfs dfs -rm -R -f ${HDFS_SCORED_CONNECTS}
 
-time spark-submit --class "org.apache.spot.SuspiciousConnects" \
+time spark2-submit --class "org.apache.spot.SuspiciousConnects" \
   --master yarn \
   --driver-memory ${SPK_DRIVER_MEM} \
   --conf spark.driver.maxResultSize=${SPK_DRIVER_MAX_RESULTS} \

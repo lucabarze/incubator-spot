@@ -138,6 +138,8 @@ class OA(object):
 
     def _get_dns_results(self):
 
+        impala.execute_query("ALTER TABLE dns RECOVER PARTITIONS;")
+
         self._logger.info("Getting {0} Machine Learning Results from HDFS".format(self._date))
         dns_results = "{0}/dns_results.csv".format(self._data_path)
 
