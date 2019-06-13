@@ -1,5 +1,4 @@
 # **Apache Spot (Incubating)**   
-a
 
 Apache Spot is open source software for leveraging insights from flow and packet analysis. It helps enterprises and service providers gain insight on their computing environments through transparency of service delivery and identification of potential security threats or attacks happening among resources operating at cloud scale.
 
